@@ -116,7 +116,6 @@
                     selected="selected"
                     @endif>{{ $data['name'] }}</option>
                     @endforeach
-                    <option v-model="selectActive = true" value="other">Other publisher</option>
                     </select>
                     
                     @if ($errors->has('bookpublish'))
