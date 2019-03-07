@@ -45,3 +45,12 @@ Route::post('reading/settings/status', 'Reading\StatusController@store');
 // systems
 Route::get('setting/passport/client', 'System\SettingController@passportClients');
 Route::get('setting/passport/authorized', 'System\SettingController@passportAuthorized');
+    
+// test
+Route::get('test/datatable', 'Test\TestController@dataIndex');
+Route::any('test/data', 'Test\TestController@data');
+Route::get('test/jquery', 'Test\TestController@jquery');
+Route::get('test/excel', 'Test\TestController@excel');
+Route::get('test/vue', 'Test\TestController@vue');
+Route::get('test/api', 'Test\TestController@TestApi');
+Route::get('test/resource', 'Test\TestController@resourceIndex');
