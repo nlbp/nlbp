@@ -132,6 +132,17 @@ class PersonController extends Controller
         ]);
     }
     
+    public function finalCheck(Request $request)
+    {
+        $booktitle = $request->booktitle;
+        $book = ReadingPerson::where('book_title', 'LIKE', $booktitle);
+        if($book) {
+            return view('reading.person.finalcheck', [
+                'book' => $book,
+            ]);
+        }
+    }
+    
     public function store(Request $request)
     {
         $request->flash();
@@ -148,9 +159,16 @@ class PersonController extends Controller
         $email = [
             'admin' => 'parmote_tab@hotmail.com',
             'staff1' => 'p-t07@hotmail.com',
-            'staff2' => 'subolwat@hotmail.com',
-            'staff3' => 'jp_ntt@hotmail.com',
+//            'staff2' => 'subolwat@hotmail.com',
+//            'staff3' => 'jp_ntt@hotmail.com',
         ];
+        
+        $book = ReadingPerson::where('book_title', 'LIKE', $request->booktitle)->get();
+        if($book->count() == 1) {
+            return view('reading.person.finalcheck', [
+                'book' => $book,
+            ]);
+        }
         
         $reading = new ReadingPerson();
         $reading->firstname = $request->firstname;
@@ -183,8 +201,8 @@ class PersonController extends Controller
         $email = [
             'admin' => 'parmote_tab@hotmail.com',
                         'staff1' => 'p-t07@hotmail.com',
-                    'staff2' => 'subolwat@hotmail.com',
-                    'staff3' => 'jp_ntt@hotmail.com',
+//                    'staff2' => 'subolwat@hotmail.com',
+//                    'staff3' => 'jp_ntt@hotmail.com',
         ];
         
         $data = $person->findOrFail($id);
