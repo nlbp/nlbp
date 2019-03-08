@@ -58,18 +58,13 @@ Vue.component(
 
 const app = new Vue({
     el: '#app',
-    data: {
-        msg: 'Test vue.',
-        pubedit: false,
-        titleedit: false,
-        checkedit: 0,
-        
-        // general input
-        inputActive: false,
-        checkActive: false,
-        selectActive: false,
-        divActive: false,
-        inputValue: '',
-        optionValue: '',
+    data: function() {
+    	return {
+    		text: '',
+    		// form
+    		value: '',
+    		selected: '',
+    		checked: True
+    	}
     }
 });
