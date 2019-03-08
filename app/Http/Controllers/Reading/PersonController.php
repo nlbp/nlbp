@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 namespace App\Http\Controllers\Reading;
 
@@ -130,17 +130,6 @@ class PersonController extends Controller
         return view('reading.person.confirm', [
             'publisher' => $publisher,
         ]);
-    }
-    
-    public function finalCheck(Request $request)
-    {
-        $booktitle = $request->booktitle;
-        $book = ReadingPerson::where('book_title', 'LIKE', $booktitle);
-        if($book) {
-            return view('reading.person.finalcheck', [
-                'book' => $book,
-            ]);
-        }
     }
     
     public function store(Request $request)
