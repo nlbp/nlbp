@@ -71,5 +71,18 @@ const app = new Vue({
         divActive: false,
         inputValue: '',
         optionValue: '',
+        toggle: false,
+        value: '',
+        selected: '',
+    },
+    
+    methods: {
+    	otherPublisher: function (event) {
+    		if(this.selected == 'publisher') {
+    			this.toggle = true
+    		} else {
+    			this.toggle = false
+    		}
+    	}
     }
 });
