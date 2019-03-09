@@ -20,21 +20,29 @@
                     
                     <div class="form-group">
                     <label for="select1">Select1</label>
-                    <select v-model="selected" class="form-control" id="select1">
+                    <select v-model="selected" @change="onChange()" class="form-control" id="select1">
                     <option disabled="disabled" value="">Please select</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
+                    <option value="edit">Edit</option>
                     </select>
                     </div>
                     
-                    <div class="form-group">
+                    <div v-if="toggle" class="form-group">
                     <label for="text1">text1</label>
                     <input type="text" class="form-control" v-model="text">
                     </div>
+                    
+                    <div class="form-group">
+                    <button type="button" @click="onClick">Test click</button>
+                    </div>
                     </form>
                     <p>
-                    @{{ text }}
+                    Selected: @{{ selected }}
+                    </p>
+                    <p>
+                    text: @{{ text }}
                     </p>
                 </div>
             </div>

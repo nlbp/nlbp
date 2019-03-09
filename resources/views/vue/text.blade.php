@@ -16,7 +16,7 @@
                         </div>
                     @endif
 <p>
-@{{ text="test vue" }}
+@{{ text }}
 </p>
                 </div>
             </div>

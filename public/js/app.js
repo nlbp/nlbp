@@ -51776,12 +51776,24 @@ var app = new Vue({
   el: '#app',
   data: function data() {
     return {
-      text: '',
-      // form
-      value: '',
+      text: 'Test vue',
+      checked: '',
       selected: '',
-      checked: True
+      value: '',
+      toggle: false
     };
+  },
+  methods: {
+    onClick: function onClick(event) {
+      alert('Test click.');
+    },
+    onChange: function onChange(event) {
+      if (this.selected == 'edit') {
+        this.toggle = true;
+      } else {
+        this.toggle = false;
+      }
+    }
   }
 });
 

@@ -60,11 +60,25 @@ const app = new Vue({
     el: '#app',
     data: function() {
     	return {
-    		text: '',
-    		// form
-    		value: '',
+    		text: 'Test vue',
+    		checked: '',
     		selected: '',
-    		checked: True
+    		value: '',
+    		toggle: false
+    	}
+    },
+    
+    methods: {
+    	onClick: function (event) {
+    		alert('Test click.')
+    	},
+    	
+    	onChange: function (event) {
+    		if(this.selected == 'edit') {
+    			this.toggle = true
+    		} else {
+    			this.toggle = false
+    		}
     	}
     }
 });
