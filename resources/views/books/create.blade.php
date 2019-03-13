@@ -185,13 +185,13 @@
                     <div class="form-group">
                                         <label class="col-md-4 control-label" for="publish" id="publish">@lang('bookCreate.publish')</label>
                                         <div class="col-md-6">
-                    <select @change="otherPublisher()" v-model="selected" class="form-control" name="publish" id="publish" required multiple="multiple">
+                    <select @change="otherPublisher()" v-model="optionValue" class="form-control" name="publish" id="publish" required multiple="multiple">
                     @foreach($publisher as $data)
                     <option value="{{ $data['name'] }}">{{ $data['name'] }}</option>
                     @endforeach
-                    <option value="publisher">{{ __('bookCreate.other') }}</option>
+                    <option value="addPublisher">{{ __('bookCreate.other') }}</option>
                     </select>
-                    <input type="text" v-if="toggle" class="form-control" name="otherpublisher" placeholder="{{ __('bookCreate.publish') }}">
+                    <input type="text" v-if="selectActive" class="form-control" name="otherpublisher" placeholder="{{ __('bookCreate.publish') }}">
                     
                     @if ($errors->has('publish'))
                                     <span class="help-block">

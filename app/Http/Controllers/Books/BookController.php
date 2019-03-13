@@ -133,7 +133,7 @@ class BookController extends Controller
         $detail->bauthor = $request->author;
         $detail->btranslate = $request->translate;
         $detail->bprovince = $request->province;
-        if($request->publish == 'publisher') {
+        if($request->publish == 'addPublisher') {
             $detail->bpublish = $request->otherpublisher;
         } else {
             $detail->bpublish = $request->publish;

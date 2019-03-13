@@ -51774,28 +51774,27 @@ Vue.component('passport-personal-access-tokens', __webpack_require__(/*! ./compo
 
 var app = new Vue({
   el: '#app',
-  data: {
-    msg: 'Test vue.',
-    pubedit: false,
-    titleedit: false,
-    checkedit: 0,
-    // general input
-    inputActive: false,
-    checkActive: false,
-    selectActive: false,
-    divActive: false,
-    inputValue: '',
-    optionValue: '',
-    toggle: false,
-    value: '',
-    selected: ''
+  data: function data() {
+    return {
+      msg: 'Test vue.',
+      pubedit: false,
+      titleedit: false,
+      checkedit: 0,
+      // general input
+      inputActive: false,
+      checkActive: false,
+      selectActive: false,
+      divActive: false,
+      inputValue: '',
+      optionValue: ''
+    };
   },
   methods: {
     otherPublisher: function otherPublisher(event) {
-      if (this.selected == 'publisher') {
-        this.toggle = true;
+      if (this.optionValue == 'addPublisher') {
+        this.selectActive = true;
       } else {
-        this.toggle = false;
+        this.selectActive = false;
       }
     }
   }
