@@ -109,14 +109,16 @@
                     <div class="form-group">
                     <label class="col-md-4 control-label" for="bookpublish">@lang('Reading.CheckBook.BookPublish')</label>
                     <div class="col-md-6">
-                    <select class="form-control" name="bookpublish" id="bookpublish" required multiple="multiple">
+                    <select v-model="optionValue" @change="otherPublisher()" class="form-control" name="bookpublish" id="bookpublish" required multiple="multiple">
                     @foreach($publisher as $data)
                     <option value="{{ $data['name'] }}"
                     @if($data['name'] == old('bookpublish'))
                     selected="selected"
                     @endif>{{ $data['name'] }}</option>
                     @endforeach
+                    <option value="addPublisher">{{ __('Reading.otherPublisher') }}</option>
                     </select>
+                    <input v-if="selectActive" type="text" class="form-control" id="addPublisher" name="addPublisher" placeholder="{{ __('Reading.CheckBook.BookPublish') }}" required="required">
                     
                     @if ($errors->has('bookpublish'))
                                     <span class="help-block">
