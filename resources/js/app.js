@@ -58,30 +58,29 @@ Vue.component(
 
 const app = new Vue({
     el: '#app',
-    data: {
-        msg: 'Test vue.',
-        pubedit: false,
-        titleedit: false,
-        checkedit: 0,
-        
-        // general input
-        inputActive: false,
-        checkActive: false,
-        selectActive: false,
-        divActive: false,
-        inputValue: '',
-        optionValue: '',
-        toggle: false,
-        value: '',
-        selected: '',
+    data: function () {
+    	return {
+    		msg: 'Test vue.',
+    		pubedit: false,
+    		titleedit: false,
+    		checkedit: 0,
+    		
+    		// general input
+    		inputActive: false,
+    		checkActive: false,
+    		selectActive: false,
+    		divActive: false,
+    		inputValue: '',
+    		optionValue: '',
+    	}
     },
     
     methods: {
     	otherPublisher: function (event) {
-    		if(this.selected == 'publisher') {
-    			this.toggle = true
+    		if(this.optionValue == 'addPublisher') {
+    			this.selectActive = true
     		} else {
-    			this.toggle = false
+    			this.selectActive = false
     		}
     	}
     }
