@@ -51780,7 +51780,9 @@ var app = new Vue({
       checked: '',
       selected: '',
       value: '',
-      toggle: false
+      toggle: false,
+      info: null,
+      page: 2
     };
   },
   methods: {
@@ -51794,6 +51796,17 @@ var app = new Vue({
         this.toggle = false;
       }
     }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('http://nlbp.test/bookresource', {
+      params: {
+        page: this.page
+      }
+    }).then(function (response) {
+      return _this.info = response.data.data;
+    });
   }
 });
 

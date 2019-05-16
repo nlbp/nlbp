@@ -64,7 +64,9 @@ const app = new Vue({
     		checked: '',
     		selected: '',
     		value: '',
-    		toggle: false
+    		toggle: false,
+    		info: null,
+    		page: 1
     	}
     },
     
@@ -80,5 +82,14 @@ const app = new Vue({
     			this.toggle = false
     		}
     	}
+    },
+    
+    mounted() {
+    	axios.get('http://nlbp.test/bookresource', {
+    		params: {
+    			page: this.page
+    		}
+    	})
+    	.then(response => (this.info = response.data.data))
     }
 });

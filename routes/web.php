@@ -1,5 +1,8 @@
 <?php
 
+use App\Books\Book;
+use App\Http\Resources\BookCollection;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,3 +52,7 @@ Route::get('setting/passport/authorized', 'System\SettingController@passportAuth
 // test
 Route::get('/text1', 'Vue\VueController@text1');
 Route::get('/form', 'Vue\VueController@form');
+Route::get('/axios', 'Vue\VueController@axios');
+Route::get('/bookresource', function () {
+    return new BookCollection(Book::paginate());
+});
