@@ -23,6 +23,11 @@ class PersonController extends Controller
 //        $this->middleware('auth');
     }
     
+    /**
+     * 
+     * @param Carbon $date
+     * @return Ambigous <\Illuminate\View\View, \Illuminate\Contracts\View\Factory>
+     */
     public function index(Carbon $date)
     {
         $person = ReadingPerson::with('status')
@@ -35,6 +40,10 @@ class PersonController extends Controller
         ]);
     }
     
+    /**
+     * 
+     * @return Ambigous <\Illuminate\View\View, \Illuminate\Contracts\View\Factory>
+     */
     public function create()
     {
         return view('reading.person.checkbook');
@@ -116,6 +125,12 @@ class PersonController extends Controller
         ]);
     }
     
+    /**
+     * 
+     * @param Request $request
+     * @param Carbon $carbon
+     * @return Ambigous <\Illuminate\View\View, \Illuminate\Contracts\View\Factory>
+     */
     public function confirm(Request $request, Carbon $carbon)
     {
         $request->flash();
@@ -132,6 +147,10 @@ class PersonController extends Controller
         ]);
     }
     
+    /**
+     * 
+     * @param Request $request
+     */
     public function store(Request $request)
     {
         $request->flash();
@@ -189,6 +208,12 @@ class PersonController extends Controller
         }
     }
     
+    /**
+     * 
+     * @param Request $request
+     * @param ReadingPerson $person
+     * @param unknown $id
+     */
     public function updateStatus(Request $request, ReadingPerson $person, $id)
     {
         $email = [
@@ -209,6 +234,13 @@ class PersonController extends Controller
         return redirect()->action('Reading\PersonController@show', ['id' => $id])->with('status', __('Reading.updatestatus'));
     }
     
+    /**
+     * 
+     * @param Request $request
+     * @param ReadingPerson $person
+     * @param ReadingStatus $status
+     * @param unknown $id
+     */
     public function show(Request $request, ReadingPerson $person, ReadingStatus $status, $id)
     {
         $data = $person->findOrFail($id);
