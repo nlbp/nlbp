@@ -54,3 +54,6 @@ Route::get('test/excel', 'Test\TestController@excel');
 Route::get('test/vue', 'Test\TestController@vue');
 Route::get('test/api', 'Test\TestController@TestApi');
 Route::get('test/resource', 'Test\TestController@resourceIndex');
+
+//report
+Route::get('report', 'Report\ReportController@index');
