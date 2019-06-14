@@ -14,6 +14,7 @@ class ReportController extends Controller
     
     public function index()
     {
+        $count = Book::with($relations);
         return view('report.index');
     }
 }
