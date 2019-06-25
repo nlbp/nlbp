@@ -56,3 +56,4 @@ Route::get('/axios', 'Vue\VueController@axios');
 Route::get('/bookresource', function () {
     return new BookCollection(Book::paginate());
 });
+    Route::get('/notification/notification1', 'Notification\NotificationController@Notification1');
