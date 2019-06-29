@@ -15,7 +15,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    
+                    {{ $notify->email }}
                 </div>
             </div>
         </div>
