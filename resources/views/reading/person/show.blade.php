@@ -9,7 +9,13 @@
                 <h1>{{ $data->book_title }}</h1>
                 @hasRole('admin')
                 <a href="#"
-                @click="ReadingStatusChange=true">{{ __('Reading.changestatus') }}</a>
+                @click="ReadingStatusChange=true">
+                {{ __('Reading.changestatus') }}</a>
+                @if($data->status->id == 3)
+                <a href="#"
+                @click="ReadingNewPublisher=true">
+                {{ __('Reading.AddBook') }}</a>
+                @endif
                 @endHasRole
                 </div>
 
@@ -77,6 +83,8 @@
                     </div>
                     </div>
                     </form>
+                    
+                    
                 </div>
             </div>
         </div>
