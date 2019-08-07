@@ -46,8 +46,8 @@
                     v-if="inputActive==false">
                     <div class="col-md-6 col-md-offset-4">
                     <button class="btn btn-primary"
-                    type="button"
-                    @click="inputActive=true">
+                    @click="inputActive=true"
+                    type="button">
                     {{ __('ReadingStatus.add') }}
                     </button>
                     </div>

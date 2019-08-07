@@ -192,8 +192,10 @@ class PersonController extends Controller
         $reading->book_trans = $request->booktrans;
         if($request->bookpublish == 'addPublisher') {
             $reading->book_publish = $request->addPublisher;
+            $reading->publish_new = 1;
         } else {
             $reading->book_publish = $request->bookpublish;
+            $reading->publish_new = 0;
         }
         $reading->status_id = 1;
         if($request->checkedit == 0) {
@@ -218,7 +220,7 @@ class PersonController extends Controller
     {
         $email = [
             'admin' => 'parmote_tab@hotmail.com',
-                        'staff1' => 'p-t07@hotmail.com',
+//                        'staff1' => 'p-t07@hotmail.com',
 //                    'staff2' => 'subolwat@hotmail.com',
 //                    'staff3' => 'jp_ntt@hotmail.com',
         ];

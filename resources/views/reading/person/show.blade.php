@@ -9,7 +9,7 @@
                 <h1>{{ $data->book_title }}</h1>
                 @hasRole('admin')
                 <a href="#"
-                @click="inputActive=true">{{ __('Reading.changestatus') }}</a>
+                @click="ReadingStatusChange=true">{{ __('Reading.changestatus') }}</a>
                 @endHasRole
                 </div>
 
@@ -20,7 +20,7 @@
                         </div>
                     @endif
 
-                    <ul v-if="inputActive == false">
+                    <ul v-if="ReadingStatusChange == false">
                     <li>{{ __('Reading.status').' '.$data->status->name }}</li>
                     <li>{{ __('Reading.firstname').' '.$data->firstname.' '.$data->lastname }}</li>
                     <li>{{ __('Reading.booktitle').' '.$data->book_title }}</li>
@@ -28,7 +28,7 @@
                     
                     <form action="{{ action('Reading\PersonController@updateStatus', ['id' => $data->id]) }}"
                     method="post"
-                    v-if="inputActive == true">
+                    v-if="ReadingStatusChange == true">
                     @csrf
                     @method('PUT')
                     
@@ -71,7 +71,7 @@
                     <div class="col-md-6 col-md-offset-4">
                     <button type="button"
                     class="btn btn-primary"
-                    @click="inputActive =false">
+                    @click="ReadingStatusChange=false">
                     {{ __('Reading.cancel') }}
                     </button>
                     </div>

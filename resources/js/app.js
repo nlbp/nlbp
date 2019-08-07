@@ -72,6 +72,10 @@ const app = new Vue({
     		divActive: false,
     		inputValue: '',
     		optionValue: '',
+    		
+    		// reading
+    		ReadingStatusChange: false,
+    		ReadingNewPublisher: false,
     	}
     },
     
