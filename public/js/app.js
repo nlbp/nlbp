@@ -52022,7 +52022,8 @@ var app = new Vue({
       inputValue: '',
       optionValue: '',
       // reading
-      ReadingStatusChange: false
+      ReadingStatusChange: false,
+      ReadingNewPublisher: false
     };
   },
   methods: {

@@ -12,8 +12,12 @@ use App\Mail\reading\support;
 use App\Mail\reading\detail;
 use App\Mail\reading\TeamStatus;
 use App\Mail\reading\PersonStatus;
-use App\Books\BookDetails;
 use App\Books\Book;
+use App\Books\BookDetails;
+use App\Books\BookMain;
+use App\Books\BookType;
+use App\Books\BookStatus;
+use App\Books\Province;
 
 class PersonController extends Controller
 {
@@ -247,8 +251,27 @@ class PersonController extends Controller
     {
         $data = $person->findOrFail($id);
         $dataStatus = $status->all();
+        $category = BookMain::all()->where('bmid', '>', 0);
+        $type = BookType::all()->where('btid', '>', 0);
+        $BookStatus = BookStatus::all();
+        $province = Province::all();
+        $now = Carbon::now()->toDateString();
+        
+        $connect = url('http://www.tab2read.com/Page_Mobile/Login.ashx?username=0837721691&password=1414&appname=tabapp');
+        $getToken = json_decode(file_get_contents($connect), true);
+        $token = urlencode($getToken['token']);
+        $getData = url('http://www.tab2read.com/Page_Mobile/Browse.ashx?type=publisher&token='.$token);
+        $dataBook = json_decode(file_get_contents($getData), true);
+        $publisher = $dataBook['catalog'];
+        
         return view('reading.person.show', [
             'data' => $data,
+            'category' => $category,
+            'type' => $type,
+            'BookStatus' => $BookStatus,
+            'province' => $province,
+            'now' => $now,
+            'publisher' => $publisher,
             'dataStatus' => $dataStatus,
         ]);
     }
