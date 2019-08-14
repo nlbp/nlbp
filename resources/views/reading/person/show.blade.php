@@ -14,7 +14,7 @@
                 @if($data->status->id == 3)
                 <a href="#"
                 @click="ReadingNewPublisher=true">
-                {{ __('Reading.AddBook') }}</a>
+                {{ __('Reading.SaveBook') }}</a>
                 @endif
                 @endHasRole
                 </div>
@@ -86,7 +86,6 @@
                     
                     <form action="{{ action('Books\BookController@store') }}" 
                     method="post" 
-                    v-if="ReadingNewPublisher==true"
                     novalidate="novalidate">
                     {{ csrf_field() }}
 
@@ -165,7 +164,7 @@
                     <div class="form-group">
                     <label class="col-md-4 control-label" for="title" id="title">@lang('bookCreate.booktitle')</label>
                     <div class="col-md-6">
-                    <input type="text" class="form-control" name="title" id="title" placeholder="@lang('bookCreate.booktitle')" required>
+                    <input type="text" class="form-control" name="title" id="title" placeholder="@lang('bookCreate.booktitle')" required value="{{ $data->book_title }}">
                     
                     @if ($errors->has('title'))
                                     <span class="help-block">
@@ -211,7 +210,7 @@
                     <div class="form-group">
                     <label class="col-md-4 control-label" for="readby" id="readby">@lang('bookCreate.readby')</label>
                     <div class="col-md-6">
-                    <input type="text" class="form-control" name="readby" id="readby" placeholder="@lang('bookCreate.readby')" required>
+                    <input type="text" class="form-control" name="readby" id="readby" placeholder="@lang('bookCreate.readby')" required value="{{ $data->firstname.' '.$data->lastname }}">
                     
                     @if ($errors->has('readby'))
                                     <span class="help-block">
@@ -224,7 +223,7 @@
                     <div class="form-group">
                     <label class="col-md-4 control-label" for="author" id="author">@lang('bookCreate.author')</label>
                     <div class="col-md-6">
-                    <input type="text" class="form-control" name="author" id="author" placeholder="@lang('bookCreate.author')" required>
+                    <input type="text" class="form-control" name="author" id="author" placeholder="@lang('bookCreate.author')" required value="{{ $data->book_author }}">
                     
                     @if ($errors->has('author'))
                                     <span class="help-block">
@@ -237,7 +236,7 @@
                     <div class="form-group">
                     <label class="col-md-4 control-label" for="translate" id="translate">@lang('bookCreate.translate')</label>
                     <div class="col-md-6">
-                    <input type="text" class="form-control" name="translate" id="translate" placeholder="@lang('bookCreate.translate')">
+                    <input type="text" class="form-control" name="translate" id="translate" placeholder="@lang('bookCreate.translate')" value="{{ $data->book_trans }}">
                     </div>
                     </div>
                     
