@@ -86,7 +86,8 @@
                     
                     <form action="{{ action('Books\BookController@store') }}" 
                     method="post" 
-                    novalidate="novalidate">
+                    novalidate="novalidate"
+                    v-if="ReadingNewPublisher==true">
                     {{ csrf_field() }}
 
                     <div class="form-group">
@@ -261,17 +262,27 @@
                     <div class="form-group">
                                         <label class="col-md-4 control-label" for="publish" id="publish">@lang('bookCreate.publish')</label>
                                         <div class="col-md-6">
-                    <select v-model="optionValue" @change="otherPublisher()" class="form-control" name="bookpublish" id="bookpublish" required multiple="multiple">
+                    <select v-model="optionValue"
+                    @change="otherPublisher()"
+                    class="form-control"
+                    name="bookpublish"
+                    id="bookpublish"
+                    required
+                    multiple="multiple">
                     @foreach($publisher as $dataPublisher)
                     <option value="{{ $dataPublisher['name'] }}"
                     @if($dataPublisher['name'] == $data->book_publish)
                     selected="selected"
                     @endif>{{ $dataPublisher['name'] }}</option>
                     @endforeach
-                    <option value="addPublisher">{{ __('Reading.otherPublisher') }}</option>
+                    <option value="addPublisher"
+                    @select="otherPublisher()"
+                    @if($data->publish_new == 1)
+                    selected="selected"
+                    @endif>{{ __('Reading.otherPublisher') }}</option>
                     </select>
-                    <input v-if="selectActive" type="text" class="form-control" id="addPublisher" name="addPublisher" placeholder="{{ __('Reading.CheckBook.BookPublish') }}" required="required">
-                    
+                    <input v-if="selectActive" type="text" class="form-control" id="addPublisher" name="addPublisher" placeholder="{{ __('Reading.CheckBook.BookPublish') }}" required="required" value="{{ $data->book_publish }}">
+                        
                     @if ($errors->has('publish'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('publish') }}</strong>
