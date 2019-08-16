@@ -71,7 +71,7 @@ const app = new Vue({
     		selectActive: false,
     		divActive: false,
     		inputValue: '',
-    		optionValue: '',
+    		optionValue: [],
     		
     		// reading
     		ReadingStatusChange: false,
