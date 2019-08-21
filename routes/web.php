@@ -47,7 +47,8 @@ Route::get('setting/passport/client', 'System\SettingController@passportClients'
 Route::get('setting/passport/authorized', 'System\SettingController@passportAuthorized');
 
 // Exports
-Route::get('export/excel', 'Export\ExcelController@create');
+Route::get('export/excel/create', 'Export\ExcelController@create');
+Route::post('export/excel/download', 'Export\ExcelController@export');
     
 // test
 Route::get('test/datatable', 'Test\TestController@dataIndex');
