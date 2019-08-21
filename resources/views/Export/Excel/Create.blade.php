@@ -15,7 +15,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    
+                    {{ $book->count() }}
                 </div>
             </div>
         </div>
