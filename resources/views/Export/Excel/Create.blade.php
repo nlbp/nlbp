@@ -15,7 +15,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    {{ $book->count() }}
+                    
+                    <form action="{{ action('Export\ExcelController@export') }}" method="post">
+                    <input type="datetime" name="startdate">
+                    </form>
                 </div>
             </div>
         </div>
