@@ -45,7 +45,14 @@ Route::post('reading/settings/status', 'Reading\StatusController@store');
 // systems
 Route::get('setting/passport/client', 'System\SettingController@passportClients');
 Route::get('setting/passport/authorized', 'System\SettingController@passportAuthorized');
-    
+
+// Exports
+Route::get('export/excel/create', 'Export\ExcelController@create');
+Route::post('export/excel/download', 'Export\ExcelController@export');
+
+// Storage
+Route::get('storage', 'Export\ExcelController@create');
+
 // test
 Route::get('test/datatable', 'Test\TestController@dataIndex');
 Route::any('test/data', 'Test\TestController@data');
