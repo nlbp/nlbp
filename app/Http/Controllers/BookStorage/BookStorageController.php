@@ -24,7 +24,7 @@ class BookStorageController extends Controller
      */
     public function create()
     {
-        //
+        return view('bookstorage.create');
     }
 
     /**
