@@ -52,7 +52,7 @@ Route::post('export/excel/download', 'Export\ExcelController@export');
 
 // Storage
 Route::get('storage', 'Export\ExcelController@create');
-
+    
 // test
 Route::get('test/datatable', 'Test\TestController@dataIndex');
 Route::any('test/data', 'Test\TestController@data');
