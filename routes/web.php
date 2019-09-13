@@ -53,6 +53,9 @@ Route::post('export/excel/download', 'Export\ExcelController@export');
 // Storage
 Route::get('storage', 'Export\ExcelController@create');
     
+Route::post('export/excel/export', 'Export\ExcelController@export');
+Route::get('export/excel/download', 'Export\ExcelController@download');
+
 // test
 Route::get('test/datatable', 'Test\TestController@dataIndex');
 Route::any('test/data', 'Test\TestController@data');
