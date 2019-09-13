@@ -16,17 +16,17 @@
                         </div>
                     @endif
                     
-                    <form action="{{ action('Export\ExcelController@export') }}" method="post" novalidate="novalidate">
-                    @csrf
+                    <form action="{{ action('Export\ExcelController@download') }}" method="get" novalidate="novalidate">
+                    
                     
                     <div class="form-group">
-                    <label class="col-md-4 control-label" for="datestart" id="datestart">{{ __('Export.Excel.DateStart') }}</label>
+                    <label class="col-md-4 control-label" for="startdate" id="startdate">{{ __('Export.Excel.DateStart') }}</label>
                     <div class="col-md-6">
-                    <input type="date" class="form-control" name="datestart" id="datestart">
+                    <input type="date" class="form-control" name="startdate" id="startdate">
                     
-                    @if ($errors->has('datestart'))
+                    @if ($errors->has('startdate'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('datestart') }}</strong>
+                                        <strong>{{ $errors->first('startdate') }}</strong>
                                     </span>
                                 @endif
                     </div>

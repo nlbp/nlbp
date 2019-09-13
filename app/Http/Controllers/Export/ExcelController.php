@@ -13,7 +13,6 @@ class ExcelController extends Controller
     
     public function create()
     {
-        $book = BookDetails::whereBetween('bdatein', ['2019-03-01', '2019-04-01'])->get();
         return view('Export.Excel.Create');
     }
 
@@ -21,6 +20,15 @@ class ExcelController extends Controller
     {
         $startdate = $request->input('startdate');
         $enddate = $request->input('enddate');
+        
+            return redirect()->action('Export\ExcelController@download', $startdate, $enddate);
+    }
+    
+    public function download(Request $request)
+    {
+        $startdate = $request->input('startdate');
+        $enddate = $request->input('enddate');
+        
         $book = BookDetails::with('book')
         ->whereBetween('bdatein', [$startdate, $enddate])
         ->get();
