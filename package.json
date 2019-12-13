@@ -24,6 +24,6 @@
         "vue-template-compiler": "^2.5.21"
     },
     "dependencies": {
-        "npm": "^6.5.0"
+        "npm": "^6.13.4"
     }
 }
